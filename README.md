@@ -7,5 +7,5 @@ Koseki J, et al., CrypToth: Cryptic pocket detection through mixed-solvent molec
 
 ## Environment Preparation
 To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd), XXX (XXX) and DASI (https://github.com/jkoseki/DAIS) must be installed. 
-
+The source code in the FF-score_calculator this time should be saved one level above the target folder.
 
