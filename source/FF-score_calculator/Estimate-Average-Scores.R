@@ -10,24 +10,16 @@ f.list     <-  list.files("./", full.names = TRUE, recursive = TRUE)
 change.id  <-  grep("-Spot_Scores.csv", f.list)
 f.list     <-  f.list[change.id]
 
-Of.list    <-  list.files("../", full.names = TRUE, recursive = TRUE)
-change.id  <-  grep("-Spot_Scores.csv", Of.list)
-Of.list    <-  Of.list[change.id]
-
-change.id  <-  grep("Additional-TDA", Of.list)
-Of.list    <-  Of.list[-change.id]
-
-change.id  <-  grep("old-data", Of.list)
-Of.list    <-  Of.list[-change.id]
-change.id  <-  grep("4P0I", Of.list)
-Of.list    <-  Of.list[-change.id]
-
-
-f.list     <-  c(Of.list, f.list)
-
-
+# Set your target PDB IDs
 pdb.id     <-  c('1FVR', '1FXX', '1NEP', '2AM9', '2W9T', '3NX1', '3P53', '3QXW')
-#pdb.id     <-  c('1JWP')
+
+# The six Probes used within msmd are used in the following notation.
+## A00 :  Benzene
+## A01 :  Isopropanol
+## A20 :  Phenol
+## A37 :  Imidazole
+## B71 :  Acetonitrile
+## E20 :  Ethylene glycol
 sol.id     <-  c('A00', 'A01', 'A20', 'A37', 'B71', 'E20')
 
 for (PN in pdb.id) {
