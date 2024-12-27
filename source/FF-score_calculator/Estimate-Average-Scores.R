@@ -11,7 +11,8 @@ change.id  <-  grep("-Spot_Scores.csv", f.list)
 f.list     <-  f.list[change.id]
 
 # Set your target PDB IDs
-pdb.id     <-  c('1FVR', '1FXX', '1NEP', '2AM9', '2W9T', '3NX1', '3P53', '3QXW')
+pdb.id     sapply(strsplit(f.list, ".//"), function(x){x[2]})
+pdb.id     sapply(strsplit(pdb.id, "/"),   function(x){x[1]})
 
 # The six Probes used within msmd are used in the following notation.
 ## A00 :  Benzene
