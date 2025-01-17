@@ -17,17 +17,24 @@ First, you need to create a CrypToth directory as below.
 The following three systems are required to run CrypToth. These systems are available in each GitHub repository. Install each system in a directory with the name of the system.
 
 
-**Installation of exprorer_msmd**
+**Installation of _exprorer_msmd_**
 
 exprorer_msmd is a system for performing mixed-solvent molecular dynamics (MSMD) simulation using GROMACS automatically.
 exprorer_msmd is available in https://github.com/keisuke-yanagisawa/exprorer_msmd
 
 
-**Installation of cosmdanalyzer**
+**Installation of _cosmdanalyzer_**
 
 cosmdanalyzer is a system for hotspot detection form output of exprorer_msmd
 cosmdanalyzer is available in "GitHub URL".
 
-**Installation of DAIS including FF score calculator**
+**Installation of _DAIS including FF score calculator_**
+Create a conda environment using conda-TDA.yml. After activating the TDA conda environment, install the bio3d, TDA, readr, data.table, tidyr, stringr, kernlab, tidyverse, dplyr, openxlsx, earth, Rtsne, mclust, gplots, and pheatmap packages in R.
 
+Since the DAIS method can be implemented by executing the R script, the following is not required, but is a procedure to be followed in order to use the uploaded bash script.
+
+- 1. Create a bin directory directly under the Linux home directory.
+- 2. Save DAIS.bash, AUTO-DAIS.bash, mdcrd2pdb_for-TDA.bash, and PDB_for-TDA.bash in the bin directory and grant execution permission (chmod +x).
+- 3. Create a DAIS-Source directory in the bin directory and save the R script in it.
+The following assumes the case for parallelized calculations (R-script_parallel computing).
 
