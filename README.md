@@ -35,8 +35,7 @@ Since the DAIS method can be implemented by executing the R script, the followin
 1. Create a bin directory directly under the Linux home directory.
 2. Save DAIS.bash, AUTO-DAIS.bash, mdcrd2pdb_for-TDA.bash, and PDB_for-TDA.bash in the bin directory and grant execution permission (chmod +x).
 3. Create a DAIS-Source directory in the bin directory and save the R script in it.
-The following assumes the case for parallelized calculations (R-script_parallel computing).
-
+4. Set path in the directry, ~/bin.
 
 An example of the directory structure is as follows.
 
