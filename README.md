@@ -8,6 +8,7 @@ Koseki J, et al., CrypToth: Cryptic pocket detection through mixed-solvent molec
 To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd), cosmdanalyzer (XXX) and DASI (https://github.com/jkoseki/DAIS) must be installed. 
 
 
+
 ## Execution protocol of CrypToth
 ### 1.	Environment Setup
 First, you need to create a CrypToth directory as below.
@@ -48,6 +49,7 @@ An example of the directory structure is as follows.
 #### 2.1    Detection of hotspots based on MSMD simulation
 In CrypToth, it is necessary to perform MSMD simulation using 6 different probes (benzene, isopropanol, phenol, imidazole, acetonitrile, and ethylene glycol) to detect hotpots which are candidates of cryptic sites (Perform MSMD simulations for each of the six types of probes).
 
+
 ##### 2.1.0    Making working directory
 You need to create two working directories in the CrypToth directory. For convenience, the PDB ID is used for the names of the working directories.
 
@@ -70,3 +72,18 @@ In the “2am9” directory, you need to create directories in which the results
 **$ mkdir A00 A01 A37 B71 A20 E20**
 
 *Also create WAT directory which is the directory for MSMD without probe (in water phase).
+
+
+##### 2.1.1    Performing MSMD simulation using exprorer_msmd
+**Input file preparation**
+Store the following three files in each probe directory. 
+
+- PDB file: e.g. 2am9.pdb
+The input PDB file should be preprocessed as necessary.
+
+- Probe molecule file: e.g. A20.mol2 and A20.pdb
+These files are created by performing structure optimization and partial charge assignment for the probe using Gaussian 16 software package. For details, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
+
+- The YAML file defining the protein, probe molecules, and simulation protocol.
+For details about this file, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
+
