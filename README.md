@@ -16,11 +16,12 @@ First, you need to create a CrypToth directory as below.
 
 The following three systems are required to run CrypToth. These systems are available in each GitHub repository. Install each system in a directory with the name of the system.
 
-Installation of exprorer_msmd
+**Installation of exprorer_msmd**
 exprorer_msmd is a system for performing mixed-solvent molecular dynamics (MSMD) simulation using GROMACS automatically.
 exprorer_msmd is available in https://github.com/keisuke-yanagisawa/exprorer_msmd
 
-Installation of cosmdanalyzer
+**Installation of cosmdanalyzer**
 cosmdanalyzer is a system for hotspot detection form output of exprorer_msmd
-cosmdanalyzer is available in GitHub URL.
+cosmdanalyzer is available in "GitHub URL".
 
+**Installation of DAIS including FF score calculator**
