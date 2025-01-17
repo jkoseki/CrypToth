@@ -75,7 +75,7 @@ In the “2am9” directory, you need to create directories in which the results
 
 
 ##### 2.1.1    Performing MSMD simulation using exprorer_msmd
-**Input file preparation**
+**Input file preparation**<br>
 Store the following three files in each probe directory. 
 
 - PDB file: e.g. 2am9.pdb <br>
