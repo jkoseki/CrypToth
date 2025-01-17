@@ -149,7 +149,8 @@ You can execute exprorer_msmd as below.
 After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B71 and E20 directories are generated in the “output” directory. The correspondence between spots and probes is described in the spot_probe.toml file. In the A00 directory, A00_out.pdb file and spots directory are generated. A00_out.pdb is a file that shows the location of the hotspot in the protein structure in final frame of the MSMD simulation with the probe. In the spots directory, spot PDB files (spots1.pdb, spots2.pdb, …) show atoms of amino acids contacting to each hotspot. The structures of proteins in the final frame of MSMD simulation do not differ greatly among probes, so the A00 spots data is used as input data of DAIS analysis.
 
 
-#### 2.1    Ranking of hotspots for detection of Crypitc site
+#### 2.2    Ranking of hotspots for detection of Crypitc site
+##### 2.2.1    Preparation for DAIS
 Before running DAIS, the molecular dynamics simulations to be compared must be completed.
 
 Create a directory to be used for calculation, and save the structure that will become Contl. and the structure that will become Case(s) in the directory.
@@ -165,8 +166,10 @@ The following command can then be executed to create a directory structure in wh
 By executing these, the following directory structure is created.
 For example, an example DAIS directory structure for the target protein 1FVR using the A00 solvent molecule is shown below.
 
-![image](https://github.com/user-attachments/assets/8ad2c286-4dbd-45b5-9010-4a55a1494991)
+![image](https://github.com/user-attachments/assets/11d5d4d2-9667-4cad-ad49-e4a5adc3204a)
+
+This completes the preparation.
 
 
-
+##### 2.2.2    Perform DAIS calculations
 
