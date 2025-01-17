@@ -64,3 +64,9 @@ In the “2am9” directory, you need to create directories in which the results
 - A20: Phenol
 - E20: Ethylene glycol
 
+
+**$ cd 2am9**
+
+**$ mkdir A00 A01 A37 B71 A20 E20**
+
+*Also create WAT directory which is the directory for MSMD without probe (in water phase).
