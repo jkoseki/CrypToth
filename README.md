@@ -87,3 +87,9 @@ These files are created by performing structure optimization and partial charge 
 - The YAML file defining the protein, probe molecules, and simulation protocol. <br>
 For details about this file, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
 
+
+The directory structure is as follows.
+![image](https://github.com/user-attachments/assets/fa184317-e497-461f-aa4b-6a349b7d6775)
+
+
+
