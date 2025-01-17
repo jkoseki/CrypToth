@@ -97,3 +97,16 @@ Example of YAML files and probe molecule files for CrypToth are available in Thi
 
 **Running _exprorer_msmd_** <br>
 You can execute exprorer_msmd as below.
+
+**$ cd ../exprorer_msmd**
+
+**$ ./exprorer_msmd ../2am9/A20/msmd_protocol_A20.yaml**
+
+In this step, 20 runs of 40 ns MSMD simulation were executed. After the execution, results are saved into “output” directory in the A20 directory.
+
+Then voxel file in OpenDX format which is necessary to calculation of probe occupancy for hotspot detection is generated based on trajectories of 20 runs of MSMD simulation. The voxel file can be generated using the following command.
+
+**$ ./protein_hotspot ../ /2am9/A20 /msmd_protocol.yaml**
+
+maxPMAP_2am9_A20_nVH.dx file is generated in the “output” directory.
+
