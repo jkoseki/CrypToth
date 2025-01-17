@@ -78,12 +78,12 @@ In the “2am9” directory, you need to create directories in which the results
 **Input file preparation**
 Store the following three files in each probe directory. 
 
-- PDB file: e.g. 2am9.pdb \t
+- PDB file: e.g. 2am9.pdb <br>
 The input PDB file should be preprocessed as necessary.
 
-- Probe molecule file: e.g. A20.mol2 and A20.pdb \t
+- Probe molecule file: e.g. A20.mol2 and A20.pdb <br>
 These files are created by performing structure optimization and partial charge assignment for the probe using Gaussian 16 software package. For details, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
 
-- The YAML file defining the protein, probe molecules, and simulation protocol. \t
+- The YAML file defining the protein, probe molecules, and simulation protocol. <br>
 For details about this file, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
 
