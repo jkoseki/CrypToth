@@ -54,7 +54,8 @@ You need to create two working directories in the CrypToth directory. For conven
 
 **$ mkdir 2am9 2am9_WAT**
 
-In the “2am9” directory, you need to create directories in which the results of MSMD simulation are saved for each probe. In the “2am9_WAT” directory, the results of MD simulation in water phase are saved. Here, you create a directory with probe ID name for each probe. Probe IDs are defined as below.
+In the “2am9” directory, you need to create directories in which the results of MSMD simulation are saved for each probe. 
+In the “2am9_WAT” directory, the results of MD simulation in water phase are saved. Here, you create a directory with probe ID name for each probe. Probe IDs are defined as below.
 
 - A00: Benzene
 - A01: Isopropanol
@@ -79,7 +80,8 @@ Store the following three files in each probe directory.
 The input PDB file should be preprocessed as necessary.
 
 - Probe molecule file: e.g. A20.mol2 and A20.pdb <br>
-These files are created by performing structure optimization and partial charge assignment for the probe using Gaussian 16 software package. For details, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
+These files are created by performing structure optimization and partial charge assignment for the probe using Gaussian 16 software package.
+For details, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
 
 - The YAML file defining the protein, probe molecules, and simulation protocol. <br>
 For details about this file, please refer to the GitHub repository of _explorer_msmd_ (https://github.com/keisuke-yanagisawa/exprorer_msmd).
@@ -109,7 +111,8 @@ maxPMAP_2am9_A20_nVH.dx file is generated in the “output” directory.
 
 
 **Running exprorer_msmd without probe molecules** <br>
-In CrypToth, MD simulation in water phase is also necessary to DAIS analysis. For the MD simulation, protein structure obtained in trajectory at 20 ns of the MSMD simulation ifs used as input PDB file (initial structure). For DAIS analysis, 5 runs of the MD simulation should be performed for each probe. The input PDB files for the 5 MD simulations can be prepare as below.
+In CrypToth, MD simulation in water phase is also necessary to DAIS analysis. For the MD simulation, protein structure obtained in trajectory at 20 ns of the MSMD simulation ifs used as input PDB file (initial structure). 
+For DAIS analysis, 5 runs of the MD simulation should be performed for each probe. The input PDB files for the 5 MD simulations can be prepare as below.
 
 
 - Open the each “2am9_A20_woWAT_500ps.pdb” files in the “system0”-“system4” directory of each “output” directory.
@@ -146,7 +149,11 @@ You can execute exprorer_msmd as below.
 
 **$ python cosmdanalyzer.py -s setting.toml ../output/ ../2am9/ -v**
 
-After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B71 and E20 directories are generated in the “output” directory. The correspondence between spots and probes is described in the spot_probe.toml file. In the A00 directory, A00_out.pdb file and spots directory are generated. A00_out.pdb is a file that shows the location of the hotspot in the protein structure in final frame of the MSMD simulation with the probe. In the spots directory, spot PDB files (spots1.pdb, spots2.pdb, …) show atoms of amino acids contacting to each hotspot. The structures of proteins in the final frame of MSMD simulation do not differ greatly among probes, so the A00 spots data is used as input data of DAIS analysis.
+After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B71 and E20 directories are generated in the “output” directory. 
+The correspondence between spots and probes is described in the spot_probe.toml file. In the A00 directory, A00_out.pdb file and spots directory are generated. 
+A00_out.pdb is a file that shows the location of the hotspot in the protein structure in final frame of the MSMD simulation with the probe. 
+In the spots directory, spot PDB files (spots1.pdb, spots2.pdb, …) show atoms of amino acids contacting to each hotspot. 
+The structures of proteins in the final frame of MSMD simulation do not differ greatly among probes, so the A00 spots data is used as input data of DAIS analysis.
 
 
 #### 2.2    Ranking of hotspots for detection of Crypitc site
@@ -172,4 +179,11 @@ This completes the preparation.
 
 
 ##### 2.2.2    Perform DAIS calculations
+The following the R script can be used to calculate the FF Scores.
 
+**Rscript Estimate-Average-Scores.R**
+
+For each DAIS result, Spot_Scores.csv is written.
+There are five Tot.Counts for each Probe molecule, and the average of the counts at each execution is taken, and then the mean and standard deviation of the five count means are calculated.
+
+Then, the enforcement times that are more than a standard deviation away from the average of the mean values are excluded as outliers, and the final FF Score can be obtained by taking the average of the FF Score at each spot.
