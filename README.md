@@ -89,7 +89,8 @@ For details about this file, please refer to the GitHub repository of _explorer_
 
 
 The directory structure is as follows.
-![image](https://github.com/user-attachments/assets/fa184317-e497-461f-aa4b-6a349b7d6775)
 
+![image](https://github.com/user-attachments/assets/072bacf0-0984-4d81-9e3d-0d8a817ae032)
 
+Example of YAML files and probe molecule files for CrypToth are available in This page.
 
