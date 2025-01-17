@@ -123,7 +123,7 @@ In CrypToth, MD simulation in water phase is also necessary to DAIS analysis. Fo
 
 **$ mkdir A20_0 A20_1 A20_2 A20_3 A20_4**
 
-YAML file is also necessary. Example of YAML files for the MD simulation (e.g. msmd_protocol_WAT_A20.yaml) is available in "GitHub URL". It needs to prepare dummy probe files since exprorer_msmd is used for the MD simulation. For convenience, A20.mol2 and A20.pdb are used as dummy probe files. Those files are also stored in WAT directory.
+YAML file is also necessary. Example of YAML files for the MD simulation (e.g. msmd_protocol_WAT_A20.yaml) is available in this page. It needs to prepare dummy probe files since exprorer_msmd is used for the MD simulation. For convenience, A20.mol2 and A20.pdb are used as dummy probe files. Those files are also stored in WAT directory.
 
 ![image](https://github.com/user-attachments/assets/4da39b78-4366-4fcf-aff9-749c105147d0)
 
@@ -137,6 +137,6 @@ Repeat the same process for the remaining five probes (A00, A01, A37, B71 and E2
 
 
 ##### 2.1.2    Detection of hotspots based on the results of _exprorer_msmd_
-_cosmdanalyzer_ can generate hotspot files showing hotspot position and amino acids contacting hotspots based on the maxPMAP_2am9_probe ID_nVH.dx obtained from each MSMD simulations with the probe (probe ID is A00, A01, A20, A37, B71 and E20, respectively). A setting file (setting.toml) is necessary to execute cosmdanalyzer. Example of setting.toml is available in "GitHub URL". Then the setting.toml file is stored into cosmdanalyzer directory.
+_cosmdanalyzer_ can generate hotspot files showing hotspot position and amino acids contacting hotspots based on the maxPMAP_2am9_probe ID_nVH.dx obtained from each MSMD simulations with the probe (probe ID is A00, A01, A20, A37, B71 and E20, respectively). A setting file (setting.toml) is necessary to execute cosmdanalyzer. Example of setting.toml is available in this page. Then the setting.toml file is stored into cosmdanalyzer directory.
 
 
