@@ -48,6 +48,8 @@ An example of the directory structure is as follows.
 #### 2.1    Detection of hotspots based on MSMD simulation
 In CrypToth, it is necessary to perform MSMD simulation using 6 different probes (benzene, isopropanol, phenol, imidazole, acetonitrile, and ethylene glycol) to detect hotpots which are candidates of cryptic sites (Perform MSMD simulations for each of the six types of probes).
 
+##### 2.1.0    Making working directory
+You need to create two working directories in the CrypToth directory. For convenience, the PDB ID is used for the names of the working directories.
 
-
-
+**$ cd CrypToth**
+**$ mkdir 2am9 2am9_WAT**
