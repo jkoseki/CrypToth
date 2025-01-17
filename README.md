@@ -162,8 +162,10 @@ The following command can then be executed to create a directory structure in wh
 
 **$ DAIS.bash**
 
+By executing these, the following directory structure is created.
+For example, an example DAIS directory structure for the target protein 1FVR using the A00 solvent molecule is shown below.
 
-
+![image](https://github.com/user-attachments/assets/8ad2c286-4dbd-45b5-9010-4a55a1494991)
 
 
 
