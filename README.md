@@ -108,3 +108,8 @@ Then voxel file in OpenDX format which is necessary to calculation of probe occu
 
 maxPMAP_2am9_A20_nVH.dx file is generated in the “output” directory.
 
+
+**Running exprorer_msmd without probe molecules** <br>
+In CrypToth, MD simulation in water phase is also necessary to DAIS analysis. For the MD simulation, protein structure obtained in trajectory at 20 ns of the MSMD simulation ifs used as input PDB file (initial structure). For DAIS analysis, 5 runs of the MD simulation should be performed for each probe. The input PDB files for the 5 MD simulations can be prepare as below.
+
+
