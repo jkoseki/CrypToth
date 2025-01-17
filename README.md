@@ -140,3 +140,14 @@ Repeat the same process for the remaining five probes (A00, A01, A37, B71 and E2
 _cosmdanalyzer_ can generate hotspot files showing hotspot position and amino acids contacting hotspots based on the maxPMAP_2am9_probe ID_nVH.dx obtained from each MSMD simulations with the probe (probe ID is A00, A01, A20, A37, B71 and E20, respectively). A setting file (setting.toml) is necessary to execute cosmdanalyzer. Example of setting.toml is available in this page. Then the setting.toml file is stored into cosmdanalyzer directory.
 
 
+**Running cosmdanalyzer** <br>
+You can execute exprorer_msmd as below.
+
+**$ cd ../cosmdanalyzer**
+
+**$ python cosmdanalyzer.py -s setting.toml ../output/ ../2am9/ -v**
+
+After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B71 and E20 directories are generated in the “output” directory. The correspondence between spots and probes is described in the spot_probe.toml file. In the A00 directory, A00_out.pdb file and spots directory are generated. A00_out.pdb is a file that shows the location of the hotspot in the protein structure in final frame of the MSMD simulation with the probe. In the spots directory, spot PDB files (spots1.pdb, spots2.pdb, …) show atoms of amino acids contacting to each hotspot. The structures of proteins in the final frame of MSMD simulation do not differ greatly among probes, so the A00 spots data is used as input data of DAIS analysis.
+
+
+#### 2.1    Ranking of hotspots for detection of Crypitc site
