@@ -56,10 +56,11 @@ You need to create two working directories in the CrypToth directory. For conven
 **$ mkdir 2am9 2am9_WAT**
 
 In the “2am9” directory, you need to create directories in which the results of MSMD simulation are saved for each probe. In the “2am9_WAT” directory, the results of MD simulation in water phase are saved. Here, you create a directory with probe ID name for each probe. Probe IDs are defined as below.
-A00: Benzene
-A01: Isopropanol
-A37: Imidazole
-B71: acetonitrile
-A20: phenol
-E20: ethylene glycol
+
+- A00: Benzene
+- A01: Isopropanol
+- A37: Imidazole
+- B71: acetonitrile
+- A20: phenol
+- E20: ethylene glycol
 
