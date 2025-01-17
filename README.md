@@ -181,7 +181,7 @@ This completes the preparation.
 ##### 2.2.2    Perform DAIS calculations
 The following the R script can be used to calculate the FF Scores.
 
-**Rscript Estimate-Average-Scores.R**
+**$ Rscript Estimate-Average-Scores.R**
 
 For each DAIS result, Spot_Scores.csv is written.
 There are five Tot.Counts for each Probe molecule, and the average of the counts at each execution is taken, and then the mean and standard deviation of the five count means are calculated.
