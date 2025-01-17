@@ -113,3 +113,30 @@ maxPMAP_2am9_A20_nVH.dx file is generated in the “output” directory.
 In CrypToth, MD simulation in water phase is also necessary to DAIS analysis. For the MD simulation, protein structure obtained in trajectory at 20 ns of the MSMD simulation ifs used as input PDB file (initial structure). For DAIS analysis, 5 runs of the MD simulation should be performed for each probe. The input PDB files for the 5 MD simulations can be prepare as below.
 
 
+- Open the each “2am9_A20_woWAT_500ps.pdb” files in the “system0”-“system4” directory of each “output” directory.
+- Then “MODEL 1” structure is picked out (extract only atoms of the protein molecule) from each 2am9_A20_woWAT_500ps.pdb and save it as the input PDB files.
+- For convenience, the name of the pdb files are set to “2am9_A20_0.pdb, 2am9_A20_1.pdb, 2am9_A20_2.pdb, 2am9_A20_3.pdb and 2am9_A20_4.pdb”, respectively.
+- make A20_0, A20_1, A20_2, A20_3 and A20_4 directories in WAT directory and store each file in correspondence directories.
+
+
+**$ cd 2am9_WAT**
+
+**$ mkdir A20_0 A20_1 A20_2 A20_3 A20_4**
+
+YAML file is also necessary. Example of YAML files for the MD simulation (e.g. msmd_protocol_WAT_A20.yaml) is available in GitHub URL. It needs to prepare dummy probe files since exprorer_msmd is used for the MD simulation. For convenience, A20.mol2 and A20.pdb are used as dummy probe files. Those files are also stored in WAT directory.
+
+![image](https://github.com/user-attachments/assets/4da39b78-4366-4fcf-aff9-749c105147d0)
+
+execute exprorer_msmd without probe molecules as below.
+
+**$ ./exprorer_msmd ../2am9_WAT/A20_0/msmd_protocol_WAT.yaml**
+
+“2am9_A20_woWAT_10ps.pdb” file is generated in the “system0” directory of the “output” directory of A20_0 directories. This file is necessary to DAIS analysis.
+
+Repeat the same process for the remaining five probes (A00, A01, A37, B71 and E20).
+
+
+##### 2.1.2    Detection of hotspots based on the results of _exprorer_msmd_
+_cosmdanalyzer_ can generate hotspot files showing hotspot position and amino acids contacting hotspots based on the maxPMAP_2am9_probe ID_nVH.dx obtained from each MSMD simulations with the probe (probe ID is A00, A01, A20, A37, B71 and E20, respectively). A setting file (setting.toml) is necessary to execute cosmdanalyzer. Example of setting.toml is available in GitHub URL. Then the setting.toml file is stored into cosmdanalyzer directory.
+
+
