@@ -60,7 +60,7 @@ In the “2am9” directory, you need to create directories in which the results
 - A00: Benzene
 - A01: Isopropanol
 - A37: Imidazole
-- B71: acetonitrile
-- A20: phenol
-- E20: ethylene glycol
+- B71: Acetonitrile
+- A20: Phenol
+- E20: Ethylene glycol
 
