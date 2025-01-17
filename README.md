@@ -151,3 +151,21 @@ After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B
 
 
 #### 2.1    Ranking of hotspots for detection of Crypitc site
+Before running DAIS, the molecular dynamics simulations to be compared must be completed.
+
+Create a directory to be used for calculation, and save the structure that will become Contl. and the structure that will become Case(s) in the directory.
+
+After converting the trajectory to a single PDB, delete the first two structures where the initial and final structures are stored, then execute the following command to convert the PDB for DAIS.
+
+**$ PDB_for-TDA.bash**
+
+The following command can then be executed to create a directory structure in which DAIS calculations can be performed.
+
+**$ DAIS.bash**
+
+
+
+
+
+
+
