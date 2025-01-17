@@ -38,3 +38,13 @@ Since the DAIS method can be implemented by executing the R script, the followin
 3. Create a DAIS-Source directory in the bin directory and save the R script in it.
 The following assumes the case for parallelized calculations (R-script_parallel computing).
 
+
+An example of the directory structure is as follows.
+
+CrypToth
+   |- exprorer_msmd
+   |- cosmdanalyzer
+   |- DAIS
+
+
+
