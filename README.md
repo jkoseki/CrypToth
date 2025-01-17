@@ -94,3 +94,6 @@ The directory structure is as follows.
 
 Example of YAML files and probe molecule files for CrypToth are available in This page.
 
+
+**Running _exprorer_msmd_** <br>
+You can execute exprorer_msmd as below.
