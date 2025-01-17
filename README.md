@@ -41,10 +41,13 @@ The following assumes the case for parallelized calculations (R-script_parallel 
 
 An example of the directory structure is as follows.
 
-CrypToth
-   |- exprorer_msmd
-   |- cosmdanalyzer
-   |- DAIS
+![image](https://github.com/user-attachments/assets/65217c06-7f12-40e3-99c8-e1816f32cf50)
+
+
+### 2.	Execution of CrypToth
+#### 2.1    Detection of hotspots based on MSMD simulation
+In CrypToth, it is necessary to perform MSMD simulation using 6 different probes (benzene, isopropanol, phenol, imidazole, acetonitrile, and ethylene glycol) to detect hotpots which are candidates of cryptic sites (Perform MSMD simulations for each of the six types of probes).
+
 
 
 
