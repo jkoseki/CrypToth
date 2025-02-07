@@ -67,7 +67,7 @@ In the “2am9_WAT” directory, the results of MD simulation in water phase are
 
 **$ cd 2am9**
 
-**$ mkdir A00 A01 A37 B71 A20 E20**
+**$ mkdir A00 A01 A20 A37 B71 E20**
 
 *Also create WAT directory which is the directory for MSMD without probe (in water phase).
 
