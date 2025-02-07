@@ -59,9 +59,9 @@ In the “2am9_WAT” directory, the results of MD simulation in water phase are
 
 - A00: Benzene
 - A01: Isopropanol
+- A20: Phenol
 - A37: Imidazole
 - B71: Acetonitrile
-- A20: Phenol
 - E20: Ethylene glycol
 
 
