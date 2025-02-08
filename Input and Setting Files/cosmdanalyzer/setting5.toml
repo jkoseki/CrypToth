@@ -1,0 +1,35 @@
+# cosmdanalyzer settings
+
+[clustering]
+# algorithm = "single_linkage" or "dbscan" or "mean_shift"
+algorithm = "dbscan" 
+occupancy = 0.0004
+extend    = 0.0
+spot_marge_rate = 0.2
+
+[clustering.single_linkage]
+threshold = 3.0
+
+[clustering.dbscan]
+epsilon = 3.0
+min_pts = 7
+
+[clustering.mean_shift]
+bandwidth = 3.0
+
+[score]
+temperature = 300.0
+solvent_radius = 1.4
+resolution = 256
+fpocket_threshold = 0.0
+
+[score.weight]
+gfe            = 1.0
+size           = 1.0
+protrusion     = 1.0
+convexity      = 1.0
+compactness    = 1.0
+hydrophobicity = 1.0
+charge_density = 1.0
+flexibility    = 1.0
+fpocket        = 1.0
