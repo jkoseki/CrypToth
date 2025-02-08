@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="株式会社 情報数理バイオ" />
+  <title>タンパク質の共溶媒分子動力学計算結果解析ソフトウェアの構築 マニュアル</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">body {
+font-family: Helvetica, arial, sans-serif;
+font-size: 14px;
+line-height: 1.6;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: white;
+padding: 30px; }
+body > *:first-child {
+margin-top: 0 !important; }
+body > *:last-child {
+margin-bottom: 0 !important; }
+a {
+color: #4183C4; }
+a.absent {
+color: #cc0000; }
+a.anchor {
+display: block;
+padding-left: 30px;
+margin-left: -30px;
+cursor: pointer;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0; }
+h1, h2, h3, h4, h5, h6 {
+margin: 20px 0 10px;
+padding: 0;
+font-weight: bold;
+-webkit-font-smoothing: antialiased;
+cursor: text;
+position: relative; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgklEQVQoz52RMQ7CMAxFX5JChw49WS/BiBhYKvUAXKwTR+gFOlWVCjtgpqaJcKqIP3iwnq0nG9ZYdmN8NRx0+MiNJw8mBNGAE8KdK60OFAgLDUAMWA+8qJkBl9LsEEbOuJRDyYWBnkoHTACqDlvrE0/anV05B/4LeOc87cckjguv+QXE7x6VcDCC/wAAAABJRU5ErkJggg==) no-repeat 10px center;
+text-decoration: none; }
+h1 tt, h1 code {
+font-size: inherit; }
+h2 tt, h2 code {
+font-size: inherit; }
+h3 tt, h3 code {
+font-size: inherit; }
+h4 tt, h4 code {
+font-size: inherit; }
+h5 tt, h5 code {
+font-size: inherit; }
+h6 tt, h6 code {
+font-size: inherit; }
+h1 {
+font-size: 28px;
+color: black; }
+h2 {
+font-size: 24px;
+border-bottom: 1px solid #cccccc;
+color: black; }
+h3 {
+font-size: 18px; }
+h4 {
+font-size: 16px; }
+h5 {
+font-size: 14px; }
+h6 {
+color: #777777;
+font-size: 14px; }
+p, blockquote, ul, ol, dl, li, table, pre {
+margin: 15px 0; }
+hr {
+background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+border: 0 none;
+color: #cccccc;
+height: 4px;
+padding: 0; }
+body > h2:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child {
+margin-top: 0;
+padding-top: 0; }
+body > h1:first-child + h2 {
+margin-top: 0;
+padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+margin-top: 0;
+padding-top: 0; }
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+margin-top: 0;
+padding-top: 0; }
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+margin-top: 0; }
+li p.first {
+display: inline-block; }
+ul, ol {
+padding-left: 30px; }
+ul :first-child, ol :first-child {
+margin-top: 0; }
+ul :last-child, ol :last-child {
+margin-bottom: 0; }
+dl {
+padding: 0; }
+dl dt {
+font-size: 14px;
+font-weight: bold;
+font-style: italic;
+padding: 0;
+margin: 15px 0 5px; }
+dl dt:first-child {
+padding: 0; }
+dl dt > :first-child {
+margin-top: 0; }
+dl dt > :last-child {
+margin-bottom: 0; }
+dl dd {
+margin: 0 0 15px;
+padding: 0 15px; }
+dl dd > :first-child {
+margin-top: 0; }
+dl dd > :last-child {
+margin-bottom: 0; }
+blockquote {
+border-left: 4px solid #dddddd;
+padding: 0 15px;
+color: #777777; }
+blockquote > :first-child {
+margin-top: 0; }
+blockquote > :last-child {
+margin-bottom: 0; }
+table {
+padding: 0; }
+table tr {
+border-top: 1px solid #cccccc;
+background-color: white;
+margin: 0;
+padding: 0; }
+table tr:nth-child(2n) {
+background-color: #f8f8f8; }
+table tr th {
+font-weight: bold;
+border: 1px solid #cccccc;
+text-align: left;
+margin: 0;
+padding: 6px 13px; }
+table tr td {
+border: 1px solid #cccccc;
+text-align: left;
+margin: 0;
+padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+margin-bottom: 0; }
+img {
+max-width: 100%; }
+span.frame {
+display: block;
+overflow: hidden; }
+span.frame > span {
+border: 1px solid #dddddd;
+display: block;
+float: left;
+overflow: hidden;
+margin: 13px 0 0;
+padding: 7px;
+width: auto; }
+span.frame span img {
+display: block;
+float: left; }
+span.frame span span {
+clear: both;
+color: #333333;
+display: block;
+padding: 5px 0 0; }
+span.align-center {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-center > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: center; }
+span.align-center span img {
+margin: 0 auto;
+text-align: center; }
+span.align-right {
+display: block;
+overflow: hidden;
+clear: both; }
+span.align-right > span {
+display: block;
+overflow: hidden;
+margin: 13px 0 0;
+text-align: right; }
+span.align-right span img {
+margin: 0;
+text-align: right; }
+span.float-left {
+display: block;
+margin-right: 13px;
+overflow: hidden;
+float: left; }
+span.float-left span {
+margin: 13px 0 0; }
+span.float-right {
+display: block;
+margin-left: 13px;
+overflow: hidden;
+float: right; }
+span.float-right > span {
+display: block;
+overflow: hidden;
+margin: 13px auto 0;
+text-align: right; }
+code, tt {
+margin: 0 2px;
+padding: 0 5px;
+white-space: nowrap;
+border: 1px solid #eaeaea;
+background-color: #f8f8f8;
+border-radius: 3px; }
+pre code {
+margin: 0;
+padding: 0;
+white-space: pre;
+border: none;
+background: transparent; }
+.highlight pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 13px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+pre {
+background-color: #f8f8f8;
+border: 1px solid #cccccc;
+font-size: 13px;
+line-height: 19px;
+overflow: auto;
+padding: 6px 10px;
+border-radius: 3px; }
+pre code, pre tt {
+background-color: transparent;
+border: none; }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">タンパク質の共溶媒分子動力学計算結果解析ソフトウェアの構築 マニュアル</h1>
+<p class="author">株式会社 情報数理バイオ</p>
+<p class="date">2023/06/05</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#ファイル一覧">ファイル一覧</a></li>
+<li><a href="#インストール方法">インストール方法</a>
+<ul>
+<li><a href="#dockerを利用した方法">Dockerを利用した方法</a></li>
+<li><a href="#poetryを利用した方法">poetryを利用した方法</a></li>
+<li><a href="#直接依存環境を導入する方法">直接依存環境を導入する方法</a></li>
+</ul></li>
+<li><a href="#使用方法">使用方法</a>
+<ul>
+<li><a href="#サンプル入力を使用したコマンド例">サンプル入力を使用したコマンド例</a>
+<ul>
+<li><a href="#ローカル環境での実行">ローカル環境での実行</a></li>
+<li><a href="#dockerを使う場合">dockerを使う場合</a></li>
+</ul></li>
+<li><a href="#オプション">オプション</a></li>
+<li><a href="#入力ディレクトリ">入力ディレクトリ</a></li>
+<li><a href="#設定ファイル">設定ファイル</a></li>
+<li><a href="#出力">出力</a>
+<ul>
+<li><a href="#スコアファイル">スコアファイル</a></li>
+<li><a href="#pymol用入力">PyMol用入力</a></li>
+<li><a href="#score_detail.csv">score_detail.csv</a></li>
+<li><a href="#スポットとプローブの対応ファイル">スポットとプローブの対応ファイル</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="ファイル一覧">ファイル一覧</h1>
+<ul>
+<li>cosmdanalyzer/ : ソースコード
+<ul>
+<li>cosmdanalyzer.py : 実行用スクリプト</li>
+<li>pyproject.toml : poetry用パッケージ管理ファイル</li>
+<li>Dockerfile : docker-image作成用ファイル</li>
+<li>src/ : ソースコード本体</li>
+<li>data/ : 実行時に必要な静的データ類
+<ul>
+<li>setting.toml : 本プログラムの設定ファイルのデフォルト値</li>
+</ul></li>
+</ul></li>
+<li>sample_data/ : サンプル用入力
+<ul>
+<li>single : 単一プローブサンプル</li>
+<li>multi : 複数プローブサンプル</li>
+</ul></li>
+<li>doc : ドキュメント類(拡張子の違いはファイル形式のみで内容は同じ)
+<ul>
+<li>README.xxx : このドキュメント, 利用説明書</li>
+</ul></li>
+</ul>
+<h1 id="インストール方法">インストール方法</h1>
+<h2 id="dockerを利用した方法">Dockerを利用した方法</h2>
+<p>Dockerが利用可能な環境が必要となる.<br />
+Dockerfileのあるディレクトリで以下のコマンドを実行する.</p>
+<pre><code>docker image build ./ -t cosmdanalyzer</code></pre>
+<p>Dockerイメージがcosmdanalyzerの名前で作成される.</p>
+<h2 id="poetryを利用した方法">poetryを利用した方法</h2>
+<p>python3.10以上とpoetryが利用可能な環境が必要となる.<br />
+pyproject.tomlのあるディレクトリで以下のコマンドを実行する.</p>
+<pre><code>poetry install --no-dev</code></pre>
+<p>poetry run python ./cosmdanalyzer.py <a href="#オプション">オプション</a><br />
+で実行可能になる.</p>
+<h2 id="直接依存環境を導入する方法">直接依存環境を導入する方法</h2>
+<p>python3.10以上が利用可能な環境が必要となる.<br />
+以下のコマンドで必要なpythonのパッケージをインストールする.</p>
+<pre><code>pip3 install rdkit griddataformats plotly tomli</code></pre>
+<h1 id="使用方法">使用方法</h1>
+<h2 id="サンプル入力を使用したコマンド例">サンプル入力を使用したコマンド例</h2>
+<h3 id="ローカル環境での実行">ローカル環境での実行</h3>
+<p>cosmdanalyzer.py のあるディレクトリで以下のコマンドを実行する.</p>
+<p>単一プローブの場合</p>
+<pre><code>python cosmdanalyzer.py \
+    ../out/ \
+    ../sample_input/single/ \
+    --output_detail \
+    -v</code></pre>
+<p>複数プローブの場合</p>
+<pre><code>python cosmdanalyzer.py \
+    ../out/ \
+    ../sample_input/multi/ \
+    --output_detail \
+    -v</code></pre>
+<p>../out/ のディレクトリに結果が出力される.</p>
+<h3 id="dockerを使う場合">dockerを使う場合</h3>
+<p>cosmdanalyzer.py のあるディレクトリで以下のコマンドを実行する.</p>
+<p>単一プローブの場合</p>
+<pre><code>docker container run --rm -v $(pwd)/../sample_input/:/home/input/ \
+                          -v $(pwd)/../out/:/home/out cosmdanalyzer \
+                          /home/out/ \
+                          /home/input/single/ \
+                          --output_detail \
+                          -v</code></pre>
+<p>複数プローブの場合</p>
+<pre><code>docker container run --rm -v $(pwd)/../sample_input/:/home/input/ \
+                          -v $(pwd)/../out/:/home/out cosmdanalyzer \
+                          /home/out/ \
+                          /home/input/multi/ \
+                          --output_detail \
+                          -v</code></pre>
+<p>dockerのオプションの後に本プログラムのオプションを続けると、本プログラムがdockerコンテナ内で実行される。</p>
+<h2 id="オプション">オプション</h2>
+<pre><code>usage: cosmdanalyzer.py [-h] [-s SETTING] [--fpocket_info FPOCKET_INFO]
+                        [--fpocket_pdb FPOCKET_PDB] [--output_detail]
+                        out_dir src_pdb src_open_dx [src_open_dx ...]
+</code></pre>
+<ul>
+<li>positional arguments:
+<ul>
+<li>out_dir 出力ディレクトリ</li>
+<li>src_dir 入力ディレクトリ</li>
+</ul></li>
+<li>options:
+<ul>
+<li>-h, –help show this help message and exit</li>
+<li>-s SETTING, –setting SETTING 設定ファイルのパス</li>
+<li>–fpocket_info FPOCKET_INFO fpocketの出力*_info.txtファイルのパス</li>
+<li>–fpocket_pdb FPOCKET_PDB fpocketの出力PDBファイルのパス</li>
+<li>–output_detail スコアの傾向を表す詳細情報を出力する</li>
+<li>-v, –verbose 標準出力に詳細な処理情報を表示する</li>
+</ul></li>
+</ul>
+<h2 id="入力ディレクトリ">入力ディレクトリ</h2>
+<p>xxx_nVH.dxファイルの存在するディレクトリを1つの系とする。 系のディレクトリは以下とする. 複数のPDBを入力とする場合</p>
+<pre><code>xxx_nVH.dx
+fpocket_out/
+system00/xxx_position_check2.pdb
+system01/xxx_position_check2.pdb
+...</code></pre>
+<p>単一のPDBを入力とする場合</p>
+<pre><code>xxx_nVH.dx
+xxx_position_check2.pdb
+fpocket_out/</code></pre>
+<ul>
+<li>xxx_nVH.dx : 共溶媒の占有率ファイル</li>
+<li>xxx_position_check2.pdb : トラジェクトリPDB</li>
+<li>fpocket_out : fpocketの出力ディレクトリ</li>
+</ul>
+<p>xxx_nVH.dxが複数ある場合,複数プローブのスポットの合成計算を行う。<br />
+ただし、xxx_nVH.dxが存在する系のディレクトリの子ディレクトリにある xxx_nVH.dxは無視される。</p>
+<h2 id="設定ファイル">設定ファイル</h2>
+<p>設定ファイルはtoml形式で記述する。<br />
+デフォルト設定ファイル</p>
+<pre><code>[clustering]
+# algorithm = &quot;single_linkage&quot; or &quot;dbscan&quot; or &quot;mean_shift&quot;
+algorithm = &quot;dbscan&quot; 
+occupancy = 0.00001
+extend    = 0.0
+spot_marge_rate = 0.5
+
+[clustering.single_linkage]
+threshold = 3.0
+
+[clustering.dbscan]
+epsilon = 3.0
+min_pts = 10
+
+[clustering.mean_shift]
+bandwidth = 3.0
+
+[score]
+temperature = 300.0
+solvent_radius = 1.4
+resolution = 256
+fpocket_threshold = 0.0
+
+[score.weight]
+gfe            = 1.0
+size           = 1.0
+protrusion     = 1.0
+convexity      = 1.0
+compactness    = 1.0
+hydrophobicity = 1.0
+charge_density = 1.0
+flexibility    = 1.0
+fpocket        = 1.0</code></pre>
+<ul>
+<li>clustering : クラスタリングの設定値
+<ul>
+<li>algorithm : スポットのクラスタリングアルゴリズム<br />
+“single-linkage” or “DBSCAN” or “mean-shift” から選択する。</li>
+<li>occupancy : ボクセル選択時のしきい値<br />
+(プローブ占有確率/プローブ重原子数 ) &gt;= occupancy のボクセルを選択</li>
+<li>extend : スポットのボクセルを指定Å分拡大する</li>
+<li>spot_marge_rate : [0.0, 1.0]複数プローブ入力時に指定割合以上重なっているスポットを同一スポットとする.</li>
+</ul></li>
+<li>score : スポットのスコア計算の設定値
+<ul>
+<li>temperature : 入力トラジェクトリ作成時の絶対温度(K)</li>
+<li>solvent_radius : 溶媒半径</li>
+<li>resolution : 1原子の球表面を指定頂点数の多面体で近似する. 大きいほど精度が高く,該当部分の計算時間が比例して増加する.</li>
+<li>weight : スコアの各項の重み</li>
+<li>fpocket_threshold : [0.0, 1.0] fpocket出力のポケットがスポットと指定割合以上重なっている場合スポットのスコアとする.</li>
+</ul></li>
+</ul>
+<h2 id="出力">出力</h2>
+<p>系のディレクトリ名(outputの場合はその親ディレクトリ)をbasenameとしたとき以下のファイルが出力ディレクトリに生成される.</p>
+<ul>
+<li>all_info.txt : すべてのプローブに対するスコア(フレーム数荷重平均)</li>
+<li>spot_probe.toml : スポットとプローブの対応表</li>
+<li>basename/ : 各プローブ毎のディレクトリ
+<ul>
+<li>basename_info.txt : スコアファイル</li>
+<li>basename.pml : PyMol用入力</li>
+<li>basename_out.pdb : 入力PDBの最終フレームにスポットの立体配置を原子名APOLで追加したファイル
+<ul>
+<li>spots : スポット毎に対応するパッチ原子を記録したPDB</li>
+</ul></li>
+<li>score_detail.csv : 各スコアの傾向 (平均, 分散, 最小値, 最大値, 第一四分位数, 中央値, 第三四分位数) オプション –output_detail を指定した場合のみ出力</li>
+</ul></li>
+</ul>
+<h3 id="スコアファイル">スコアファイル</h3>
+<p>出力例</p>
+<pre><code>Patch 1
+    score :     394.091
+    gfe :   1.337
+    size :  388.927
+    protrusion :    1.000
+    convexity :     0.022
+    compactness :   3.307
+    hydrophobicity :    -0.930
+    charge_density :    -0.015
+    flexibility :   0.442
+    fpocket :   n/a
+
+Patch 2
+...</code></pre>
+<p>パッチ毎にスコアの各項が出力される.</p>
+<h3 id="pymol用入力">PyMol用入力</h3>
+<p>出力されたbasename.pmlをPyMolで読み込むとスポットの立体構造が可視化される。</p>
+<h3 id="score_detail.csv">score_detail.csv</h3>
+<p>各列の情報は以下の通り</p>
+<ul>
+<li>spot : スポットの番号</li>
+<li>score_type : 行のスコア値が表しているスコアの種類</li>
+<li>mean : 平均</li>
+<li>variance : 分散</li>
+<li>0.0 : 最小値</li>
+<li>0.25 : 第一四分位数</li>
+<li>0.5 : 中央値</li>
+<li>0.75 : 第三四分位数</li>
+<li>1.0 : 最大値</li>
+</ul>
+<p>出力例</p>
+<pre><code>spot,score_type,mean,variance,0.0,0.25,0.50,0.75,1.0
+1,size,388.9274,19.73281,379.7122,385.784,388.1892,391.6664,398.7536
+1,protrusion,1,0,1,1,1,1,1
+1,convexity,0.02166458,5.456679e-06,0.01765554,0.02062114,0.02174732,0.02299604,0.0277241
+1,compactness,3.307329,0.07657145,2.908801,3.11562,3.170944,3.561596,3.787375
+1,charge_density,-0.01541033,4.736121e-06,-0.01944439,-0.01679969,-0.01558867,-0.01391103,-0.01187199
+2,size,524.7099,17.29361,519.2607,521.8222,524.3902,526.5038,533.8469
+...</code></pre>
+<h3 id="スポットとプローブの対応ファイル">スポットとプローブの対応ファイル</h3>
+<p>スポットに対応する複数のプローブを</p>
+<p>スポット名 = プローブ名, プローブ名, …</p>
+<p>の形式で記録する。</p>
+<p>出力例</p>
+<pre><code>Patch 0 = A00
+Patch 1 = A01, A00
+...</code></pre>
+</body>
+</html>
