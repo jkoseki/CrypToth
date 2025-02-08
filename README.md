@@ -25,7 +25,7 @@ exprorer_msmd is available in https://github.com/keisuke-yanagisawa/exprorer_msm
 
 **Installation of _cosmdanalyzer_** <br>
 cosmdanalyzer is a system for hotspot detection form output of exprorer_msmd
-cosmdanalyzer is available in Input files.
+cosmdanalyzer is available in Input and Setting Files.
 
 **Installation of _DAIS including FF score calculator_** <br>
 Create a conda environment using conda-TDA.yml. After activating the TDA conda environment, install the bio3d, TDA, readr, data.table, tidyr, stringr, kernlab, tidyverse, dplyr, openxlsx, earth, Rtsne, mclust, gplots, and pheatmap packages in R.
