@@ -50,9 +50,9 @@ In CrypToth, it is necessary to perform MSMD simulation using 6 different probes
 ##### 2.1.0    Making working directory
 You need to create two working directories in the CrypToth directory. For convenience, the PDB ID is used for the names of the working directories.
 
-**$ cd CrypToth**
+**`$ cd CrypToth`**
 
-**$ mkdir 2am9 2am9_WAT**
+**`$ mkdir 2am9 2am9_WAT`**
 
 In the “2am9” directory, you need to create directories in which the results of MSMD simulation are saved for each probe. 
 In the “2am9_WAT” directory, the results of MD simulation in water phase are saved. Here, you create a directory with probe ID name for each probe. Probe IDs are defined as below.
@@ -65,9 +65,9 @@ In the “2am9_WAT” directory, the results of MD simulation in water phase are
 - E20: Ethylene glycol
 
 
-**$ cd 2am9**
+**`$ cd 2am9`**
 
-**$ mkdir A00 A01 A20 A37 B71 E20**
+**`$ mkdir A00 A01 A20 A37 B71 E20`**
 
 *Also create WAT directory which is the directory for MSMD without probe (in water phase).
 
@@ -97,15 +97,15 @@ Example of YAML files and probe molecule files for CrypToth are available in Thi
 **Running _exprorer_msmd_** <br>
 You can execute exprorer_msmd as below.
 
-**$ cd ../exprorer_msmd**
+**`$ cd ../exprorer_msmd`**
 
-**$ ./exprorer_msmd ../2am9/A20/msmd_protocol_A20.yaml**
+**`$ ./exprorer_msmd ../2am9/A20/msmd_protocol_A20.yaml`**
 
 In this step, 20 runs of 40 ns MSMD simulation were executed. After the execution, results are saved into “output” directory in the A20 directory.
 
 Then voxel file in OpenDX format which is necessary to calculation of probe occupancy for hotspot detection is generated based on trajectories of 20 runs of MSMD simulation. The voxel file can be generated using the following command.
 
-**$ ./protein_hotspot ../ /2am9/A20 /msmd_protocol.yaml**
+**`$ ./protein_hotspot ../ /2am9/A20 /msmd_protocol.yaml`**
 
 maxPMAP_2am9_A20_nVH.dx file is generated in the “output” directory.
 
@@ -121,9 +121,9 @@ For DAIS analysis, 5 runs of the MD simulation should be performed for each prob
 - make A20_0, A20_1, A20_2, A20_3 and A20_4 directories in WAT directory and store each file in correspondence directories.
 
 
-**$ cd 2am9_WAT**
+**`$ cd 2am9_WAT`**
 
-**$ mkdir A20_0 A20_1 A20_2 A20_3 A20_4**
+**`$ mkdir A20_0 A20_1 A20_2 A20_3 A20_4`**
 
 YAML file is also necessary. Example of YAML files for the MD simulation (e.g. msmd_protocol_WAT_A20.yaml) is available in this page. It needs to prepare dummy probe files since exprorer_msmd is used for the MD simulation. For convenience, A20.mol2 and A20.pdb are used as dummy probe files. Those files are also stored in WAT directory.
 
@@ -131,7 +131,7 @@ YAML file is also necessary. Example of YAML files for the MD simulation (e.g. m
 
 execute exprorer_msmd without probe molecules as below.
 
-**$ ./exprorer_msmd ../2am9_WAT/A20_0/msmd_protocol_WAT.yaml**
+**`$ ./exprorer_msmd ../2am9_WAT/A20_0/msmd_protocol_WAT.yaml`**
 
 “2am9_A20_woWAT_10ps.pdb” file is generated in the “system0” directory of the “output” directory of A20_0 directories. This file is necessary to DAIS analysis.
 
@@ -145,9 +145,9 @@ _cosmdanalyzer_ can generate hotspot files showing hotspot position and amino ac
 **Running cosmdanalyzer** <br>
 You can execute exprorer_msmd as below.
 
-**$ cd ../cosmdanalyzer**
+**`$ cd ../cosmdanalyzer`**
 
-**$ python cosmdanalyzer.py -s setting.toml ../output/ ../2am9/ -v**
+**`$ python cosmdanalyzer.py -s setting.toml ../output/ ../2am9/ -v`**
 
 After execution of cosmdanalyzer, spot_probe.toml file and A00, A01, A20, A37, B71 and E20 directories are generated in the “output” directory. 
 The correspondence between spots and probes is described in the spot_probe.toml file. In the A00 directory, A00_out.pdb file and spots directory are generated. 
@@ -164,11 +164,11 @@ Create a directory to be used for calculation, and save the structure that will 
 
 After converting the trajectory to a single PDB, delete the first two structures where the initial and final structures are stored, then execute the following command to convert the PDB for DAIS.
 
-**$ PDB_for-TDA.bash**
+**`$ PDB_for-TDA.bash`**
 
 The following command can then be executed to create a directory structure in which DAIS calculations can be performed.
 
-**$ DAIS.bash**
+**`$ DAIS.bash`**
 
 By executing these, the following directory structure is created.
 For example, an example DAIS directory structure for the target protein 1FVR using the A00 solvent molecule is shown below.
@@ -181,7 +181,7 @@ This completes the preparation.
 ##### 2.2.2    Perform DAIS calculations
 The following the R script can be used to calculate the FF Scores.
 
-**$ Rscript Estimate-Average-Scores.R**
+**`$ Rscript Estimate-Average-Scores.R`**
 
 For each DAIS result, Spot_Scores.csv is written.
 There are five Tot.Counts for each Probe molecule, and the average of the counts at each execution is taken, and then the mean and standard deviation of the five count means are calculated.
