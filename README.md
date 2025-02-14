@@ -13,7 +13,7 @@ To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd),
 ### 1.	Environment Setup
 First, you need to create a CrypToth directory as below.
 
-**$ mkdir CrypToth**
+**`$ mkdir CrypToth`**
 
 The following three systems are required to run CrypToth. These systems are available in each GitHub repository. Install each system in a directory with the name of the system.
 
