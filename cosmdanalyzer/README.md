@@ -5,10 +5,10 @@
 * cosmdanalyzer/ : Source Code
     * cosmdanalyzer.py : Execution script
     * pyproject.toml : Package management file for poetry
-    * src/ : Main source code
-    * data/ : Static data required at runtime
     * setting.toml : Setting file (default values)
-* sample_data/ : Sample input
+* src/ : Main source code
+* data/ : Static data required at runtime
+* sample_input/ : Sample input
     * multi : Multiple probe sample
     * single : Single probe sample
 
