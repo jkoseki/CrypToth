@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cosmdanalyzer"
+version = "0.1.0"
+description = ""
+authors = ["Chie Motono <c-motono@aist.go.jp> and Kenichiro Imai <kenichiro.imai@aist.go.jp>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rdkit = "^2022.9.4"
+griddataformats = "^1.0.1"
+tomli = "^2.0.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.1.1"
+plotly = "^5.13.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
