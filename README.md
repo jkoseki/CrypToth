@@ -5,7 +5,7 @@ Koseki J, et al., CrypToth: Cryptic pocket detection through mixed-solvent molec
 
 ![image](https://github.com/user-attachments/assets/ea300d6d-c5cf-43e3-a920-1a10667fcd9b)
 
-To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd), cosmdanalyzer (in this repository) and DASI (https://github.com/jkoseki/DAIS) must be installed. 
+To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd), cosmdanalyzer (in this repository; https://github.com/jkoseki/CrypToth/tree/main/cosmdanalyzer) and DASI (https://github.com/jkoseki/DAIS) must be installed. 
 
 
 
