@@ -1,0 +1,27 @@
+Pocket 1 :
+	Score : 	0.413
+	Druggability Score : 	0.008
+	Number of Alpha Spheres : 	29
+	Cent. of mass - Alpha Sphere max dist: 	8.407
+	Flexibility : 	0.000
+
+Pocket 2 :
+	Score : 	0.372
+	Druggability Score : 	0.006
+	Number of Alpha Spheres : 	27
+	Total SASA : 	101.938
+	Polar SASA : 	56.048
+
+Pocket 3 :
+	Score : 	0.335
+	Druggability Score : 	0.003
+	Number of Alpha Spheres : 	22
+	Total SASA : 	68.322
+	Polar SASA : 	34.508
+
+Pocket 4 :
+	Score : 	0.265
+	Druggability Score : 	0.041
+	Number of Alpha Spheres : 	21
+	Apolar alpha sphere proportion : 	0.524
+	Hydrophobicity score:	7.833
