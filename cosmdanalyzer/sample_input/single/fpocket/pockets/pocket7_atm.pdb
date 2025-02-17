@@ -1,0 +1,35 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     7:
+HEADER 0  - Pocket Score                      : 0.1154
+HEADER 1  - Drug Score                        : 0.0009
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.8595
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5191
+HEADER 5  - Mean B-factor of pocket residues  : 0.0000
+HEADER 6  - Hydrophobicity Score              : 3.1250
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 3.0000
+HEADER 9  - Pocket volume (Monte Carlo)       : 224.7093
+HEADER 10 - Pocket volume (convex hull)       : 3.7428
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 3.0000
+HEADER 13 - Number of apolar alpha sphere     :     4
+HEADER 14 - Proportion of apolar alpha sphere : 0.2667
+ATOM    915   OG SER    60       3.608  -0.200  -6.476  0.00  0.00           O 0
+ATOM    714  CE1 HIE    46       4.462   2.095  -8.778  0.00  0.00           C 0
+ATOM    863   CB ALA    57       4.334  -2.680  -9.255  0.00  0.00           C 0
+ATOM    645   CE MET    42       1.177   4.384 -10.316  0.00  0.00           C 0
+ATOM    713  ND1 HIE    46       5.037   0.924  -8.568  0.00  0.00           N 0
+ATOM    712   CG HIE    46       6.220   1.009  -9.302  0.00  0.00           C 0
+ATOM    631  OD2 ASP    41       3.551   2.533 -15.015  0.76  9.64           O 0
+ATOM    859    N ALA    57       3.549  -3.471 -11.484  0.51  4.37           N 0
+ATOM    844    O GLY    55       4.276  -2.651 -15.443  0.39  4.29           O 0
+ATOM    855   CA PRO    56       2.483  -3.901 -13.693  0.00  0.00           C 0
+ATOM    756  CE1 HIP    48       7.096  -1.862 -13.346  0.00  0.00           C 0
+ATOM    718  CD2 HIE    46       6.354   2.188  -9.931  0.00  0.00           C 0
+ATOM    716  NE2 HIE    46       5.271   2.884  -9.472  0.00  0.00           N 0
+TER
+END
