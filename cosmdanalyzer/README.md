@@ -9,8 +9,7 @@
 * src/ : Main source code
 * data/ : Static data required at runtime
 * sample_input/ : Sample input
-    * multi : Multiple probe sample
-    * single : Single probe sample
+    * multi : Small sample for Multiple probes
 
 # Installation
 ## Using poetry
