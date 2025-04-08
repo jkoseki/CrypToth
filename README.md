@@ -45,7 +45,7 @@ An example of the directory structure is as follows.
 
 ### 2.	Execution of CrypToth
 #### 2.1    Detection of hotspots based on MSMD simulation
-In CrypToth, it is necessary to perform MSMD simulation using 6 different probes (benzene, isopropanol, phenol, imidazole, acetonitrile, and ethylene glycol) to detect hotpots which are candidates of cryptic sites (Perform MSMD simulations for each of the six types of probes).
+In CrypToth, it is necessary to perform MSMD simulation using 6 different probes (dimethyl ether, benzene, phenol, methyl imidazole, acetonitrile, and ethylene glycol) to detect hotpots which are candidates of cryptic sites (Perform MSMD simulations for each of the six types of probes).
 
 
 ##### 2.1.0    Making working directory
@@ -58,10 +58,10 @@ You need to create two working directories in the CrypToth directory. For conven
 In the “2am9” directory, you need to create directories in which the results of MSMD simulation are saved for each probe. 
 In the “2am9_WAT” directory, the results of MD simulation in water phase are saved. Here, you create a directory with probe ID name for each probe. Probe IDs are defined as below.
 
-- A00: Benzene
-- A01: Isopropanol
+- A00: Dimethyl Ether
+- A01: Benzene
 - A20: Phenol
-- A37: Imidazole
+- A37: Methyl imidazole
 - B71: Acetonitrile
 - E20: Ethylene glycol
 
