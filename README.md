@@ -3,6 +3,7 @@ CrypToth can explore hotspots on the protein surface favorable to ligand binding
 
 Koseki J, et al., CrypToth: Cryptic pocket detection through mixed-solvent molecular dynamics simulations based topological data analysis. bioRxiv. 2024 doi: https://doi.org/10.1101/2024.07.10.602991
 
+![image](https://github.com/user-attachments/assets/ae65a3a3-a5de-437a-a226-734c5c6a9b9c)
 
 To run CrypToth, exprprea (https://github.com/keisuke-yanagisawa/exprorer_msmd), cosmdanalyzer (in this repository; https://github.com/jkoseki/CrypToth/tree/main/cosmdanalyzer) and DASI (https://github.com/jkoseki/DAIS) must be installed. 
 
