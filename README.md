@@ -1,7 +1,7 @@
 # CrypToth
 CrypToth can explore hotspots on the protein surface favorable to ligand binding using MSMD simulations with six different probes and then identify hotspots corresponding to cryptic sites by assessing the protein's conformational variability using the topological data analysis. 
 
-Koseki J, et al., CrypToth: Cryptic pocket detection through mixed-solvent molecular dynamics simulations based topological data analysis. bioRxiv. 2024 doi: https://doi.org/10.1101/2024.07.10.602991
+Koseki J, et al., CrypToth: Cryptic Pocket Detection through Mixed-Solvent Molecular Dynamics Simulations-Based Topological Data Analysis, J Chem Inf Model, 2025 doi: https://pubs.acs.org/doi/10.1021/acs.jcim.4c02111; bioRxiv. 2024 doi: https://doi.org/10.1101/2024.07.10.602991
 
 ![image](https://github.com/user-attachments/assets/ae65a3a3-a5de-437a-a226-734c5c6a9b9c)
 
