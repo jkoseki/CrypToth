@@ -1,5 +1,5 @@
 # Manual for Hotspot Analysis Software Based on Co-solvent Molecular Dynamics Calculation Results
-> Chie Motono and Kenichiro Imai, AIST
+> Copyright (c) Chie Motono and Kenichiro Imai, AIST, 2024
 
 # File List
 * cosmdanalyzer/ : Source Code
